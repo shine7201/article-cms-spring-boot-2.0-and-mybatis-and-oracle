@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.sbs.starter.dto.Article;
@@ -19,10 +20,11 @@ public class ArticleController {
 	ArticleService articleService;
 	
 	@RequestMapping("/article/list")
-	public String showList() {
+	public String showList(Model aModel) {
 		List<Article> list = articleService.getList();
 		
-		Log.info("list : "+list);
+		aModel.addAttribute("list", list);
+		// request.setAttribute("list", list); 와 똑같은 표현!
 		
 		return "article/list";
 	}
