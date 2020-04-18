@@ -6,4 +6,11 @@
 		SELECT * FROM article
 		ORDER BY id DESC
 	</select>
+	
+	<insert id="add" parameterType="map">
+		INSERT INTO article
+		SET regDate = NOW(),
+		title = #{title},
+		body = #{body}
+	</insert>
 </mapper>
