@@ -11,6 +11,11 @@
 		SELECT count(*) FROM article
 	</select>
 	
+	<select id="getOne" parameterType="long" resultType="Article">
+		SELECT id, title, body, regDate FROM article
+		WHERE id = #{id}
+	</select>
+	
 	<insert id="add" parameterType="map" useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO article
 		SET regDate = NOW(),
