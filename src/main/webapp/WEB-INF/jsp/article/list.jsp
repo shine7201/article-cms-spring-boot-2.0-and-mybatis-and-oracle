@@ -6,10 +6,11 @@
 <meta charset="EUC-KR">
 <title>커뮤니티 사이트 - 게시물 리스트</title>
 </head>
+<link rel="stylesheet" href="/resource/common.css"/>
 <body>
 	<h1 class="con">게시물 리스트</h1>
 	
-	<h2>전체 게시물 개수 : ${totalCount}</h2>
+	<h2 class="con">전체 게시물 개수 : ${totalCount}</h2>
 	
 	<div class="con">
 		<!-- el의 장점은 request.getAttribute("article") 할 필요 없음. -->
@@ -21,6 +22,8 @@
 		</c:forEach>
 	</div>
 	
-	<a href="./add">게시물 추가</a>
+	<div class="btns con">
+		<a href="./add">게시물 추가</a>
+	</div>
 </body>
 </html>
