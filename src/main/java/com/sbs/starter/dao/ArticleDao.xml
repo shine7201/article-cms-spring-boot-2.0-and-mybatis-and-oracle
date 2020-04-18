@@ -27,4 +27,9 @@
 		DELETE FROM article
 		where id = #{id}
 	</delete>
+	
+	<update id="modify" parameterType="map">
+		UPDATE article SET title = #{title}, body = #{body}
+		WHERE id = #{id}
+	</update>
 </mapper>

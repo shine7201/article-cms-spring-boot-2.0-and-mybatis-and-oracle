@@ -11,4 +11,5 @@ public interface ArticleService {
 	public int getTotalCount();
 	public Article getOne(long id);
 	public void delete(long id);
+	public void modify(Map<String, Object> param);
 }
