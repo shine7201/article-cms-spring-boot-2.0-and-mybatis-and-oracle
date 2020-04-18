@@ -25,6 +25,8 @@ public class ArticleController {
 	public String showDetail(Model model, long id) {
 		Article article = articleService.getOne(id);
 		
+		articleService.hitUps(id);
+		
 		model.addAttribute("article", article);
 		
 		return "article/detail";
@@ -92,7 +94,7 @@ public class ArticleController {
 	
 	@RequestMapping("/article/doDelete")
 	@ResponseBody
-	public String doAdd(long id) {
+	public String doDelete(long id) {
 		long newId = id;
 		articleService.delete(id);
 		

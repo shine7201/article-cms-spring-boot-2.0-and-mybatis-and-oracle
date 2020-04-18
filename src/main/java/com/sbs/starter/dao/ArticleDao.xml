@@ -12,7 +12,7 @@
 	</select>
 	
 	<select id="getOne" parameterType="long" resultType="Article">
-		SELECT id, title, body, regDate FROM article
+		SELECT id, title, body, regDate, hit FROM article
 		WHERE id = #{id}
 	</select>
 	
@@ -30,6 +30,11 @@
 	
 	<update id="modify" parameterType="map">
 		UPDATE article SET title = #{title}, body = #{body}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="hitUp" parameterType="long">
+		UPDATE article SET hit = hit+1
 		WHERE id = #{id}
 	</update>
 </mapper>
