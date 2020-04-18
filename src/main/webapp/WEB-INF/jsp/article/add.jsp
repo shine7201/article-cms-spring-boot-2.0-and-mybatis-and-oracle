@@ -1,27 +1,20 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="EUC-KR">
-<title>Ä¿¹Â´ÏÆ¼ »çÀÌÆ® - °Ô½Ã¹° ÀÛ¼º</title>
-</head>
-<link rel="stylesheet" href="/resource/common.css"/>
-<body>
-	<h1 class="con">°Ô½Ã¹° ÀÛ¼º</h1>
-	
+<c:set var="pageName" value="ê²Œì‹œë¬¼ ì¶”ê°€"/>
+<%@ include file="../part/head.jspf" %>
+
 	<script>
 		function submitAddForm(form){
 			form.title.value = form.title.value.trim();
 			if(form.title.value.length == 0){
-				alert("Á¦¸ñÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+				alert("ì œëª©ì„ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 				form.title.focus();
 
 				return false;
 			}
 
 			if(form.body.value.length == 0){
-				alert("³»¿ëÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+				alert("ë‚´ìš©ì„ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 				form.body.focus();
 
 				return false;
@@ -34,31 +27,30 @@
 	<form class="con common-form" action="./doAdd" method="POST" onsubmit="submitAddForm(this); return false;">
 		<div>
 			<span>
-				Á¦¸ñ
+				ì œëª©
 			</span>
 			<div>
-				<input type="text" name="title" placeholder="Á¦¸ñ" autofocus="autofocus">
+				<input type="text" name="title" placeholder="ì œëª©" autofocus="autofocus">
 			</div>
 		</div>
 		
 		<div>
 			<span>
-				³»¿ë
+				ë‚´ìš©
 			</span>
 			<div>
-				<textarea name="body" placeholder="³»¿ë"></textarea>
+				<textarea name="body" placeholder="ë‚´ìš©"></textarea>
 			</div>
 		</div>
 		
 		<div>
 			<span>
-				ÀÛ¼º
+				ì‘ì„±
 			</span>
 			<div>
-				<input type="submit" value="ÀÛ¼º"/>
-				<input type="reset" value="Ãë¼Ò" onclick="history.back();"/>
+				<input type="submit" value="ì‘ì„±"/>
+				<input type="reset" value="ì·¨ì†Œ" onclick="history.back();"/>
 			</div>
 		</div>
 	</form>
-</body>
-</html>
+<%@ include file="../part/foot.jspf" %>

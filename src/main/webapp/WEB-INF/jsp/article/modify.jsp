@@ -1,27 +1,20 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="EUC-KR">
-<title>Ä¿¹Â´ÏÆ¼ »çÀÌÆ® - °Ô½Ã¹° ¼öÁ¤</title>
-</head>
-<link rel="stylesheet" href="/resource/common.css"/>
-<body>
-	<h1 class="con">°Ô½Ã¹° ¼öÁ¤</h1>
+<c:set var="pageName" value="ê²Œì‹œë¬¼ ìˆ˜ì •"/>
+<%@ include file="../part/head.jspf" %>
 	
 	<script>
 		function submitModifyForm(form){
 			form.title.value = form.title.value.trim();
 			if(form.title.value.length == 0){
-				alert("Á¦¸ñÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+				alert("ì œëª©ì„ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 				form.title.focus();
 
 				return false;
 			}
 
 			if(form.body.value.length == 0){
-				alert("³»¿ëÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+				alert("ë‚´ìš©ì„ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 				form.body.focus();
 
 				return false;
@@ -36,36 +29,35 @@
 		<input type="hidden" name="id" value="${article.id }"/>
 		<div>
 			<span>
-				Á¦¸ñ
+				ì œëª©
 			</span>
 			<div>
-				<input type="text" name="title" placeholder="Á¦¸ñ" autofocus="autofocus" value="${article.title}">
+				<input type="text" name="title" placeholder="ì œëª©" autofocus="autofocus" value="${article.title}">
 			</div>
 		</div>
 		
 		<div>
 			<span>
-				³»¿ë
+				ë‚´ìš©
 			</span>
 			<div>
-				<textarea name="body" placeholder="³»¿ë">${article.body }</textarea>
+				<textarea name="body" placeholder="ë‚´ìš©">${article.body }</textarea>
 			</div>
 		</div>
 		
 		<div>
 			<span>
-				ÀÛ¼º
+				ì‘ì„±
 			</span>
 			<div>
-				<input type="submit" value="ÀÛ¼º"/>
-				<input type="reset" value="Ãë¼Ò" onclick="history.back();"/>
+				<input type="submit" value="ì‘ì„±"/>
+				<input type="reset" value="ì·¨ì†Œ" onclick="history.back();"/>
 			</div>
 		</div>
 	</form>
 	<div class="btns con">
-		<a href="./list">°Ô½Ã¹° ¸®½ºÆ®</a>
-		<a href="./add">°Ô½Ã¹° Ãß°¡</a>
-		<a onclick="if(confirm('»èÁ¦ÇÏ½Ã°Ú½À´Ï±î?') == false) return false;" href="./doDelete?id=${article.id }">°Ô½Ã¹° »èÁ¦</a>
+		<a href="./list">ê²Œì‹œë¬¼ ë¦¬ìŠ¤íŠ¸</a>
+		<a href="./add">ê²Œì‹œë¬¼ ì¶”ê°€</a>
+		<a onclick="if(confirm('ì‚­ì œí•˜ì‹œê² ìŠµë‹ˆê¹Œ?') == false) return false;" href="./doDelete?id=${article.id }">ê²Œì‹œë¬¼ ì‚­ì œ</a>
 	</div>
-</body>
-</html>
+<%@ include file="../part/foot.jspf" %>
